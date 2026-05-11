@@ -3,7 +3,7 @@ ROOT=$(
   pwd
 )
 
-if [ -d "$HOME/.config/shell" ]; then
+if [ ! -d "$HOME/.config/shell" ]; then
   mkdir -p $HOME/.config/shell
 fi
 
