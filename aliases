@@ -17,6 +17,9 @@ alias tn='tmux new -s'
 alias lv='lv -Ou8'
 alias vim=nvim
 alias vi=nvim
+alias ccdbg='cc -g -O0'
+alias cxxdbg='c++ -g -O0'
+alias gdbq='gdb -q'
 # git aliases
 alias g='git'
 alias gd='git diff'

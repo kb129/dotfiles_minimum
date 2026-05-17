@@ -17,6 +17,7 @@ ln -s $ROOT/tmux.conf $HOME/.tmux.conf
 ln -s $ROOT/screenrc $HOME/.screenrc
 ln -s $ROOT/zshrc $HOME/.zshrc
 ln -s $ROOT/zpreztorc $HOME/.zpreztorc
+ln -s $ROOT/gdbinit $HOME/.gdbinit
 
 # Neovim
 if [ ! -d "$HOME/.config/nvim/lua" ]; then
