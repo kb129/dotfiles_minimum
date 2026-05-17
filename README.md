@@ -6,7 +6,7 @@
 ## セットアップ
 
 ```bash
-cd /home/runner/work/dotfiles_minimum/dotfiles_minimum
+cd <repo-directory>
 ./install.sh
 ```
 
