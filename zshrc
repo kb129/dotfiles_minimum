@@ -24,10 +24,10 @@ path=(
   /usr/local/sbin(N-/) # Local system binaries
   $HOME/.nodebrew/current/bin(N-/) # Nodebrew executables
   $HOME/.go/bin(N-/) # Go executables
-  $HOME/.cargo/bin(N-/) # Rust cargo executables
   /home/linuxbrew/.linuxbrew/bin(N-/) # Linuxbrew executables
   /home/linuxbrew/.linuxbrew/sbin(N-/) # Linuxbrew system binaries
   /opt/homebrew/bin/node(N-/)
+  /snap/bin(N-/)
 )
 
 # rbenv
@@ -61,33 +61,9 @@ fi
 # go
 export GOPATH=$HOME/.go
 
-# brew
-if [ -f /opt/homebrew/bin/brew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -f $HOME/.cargo/env ]; then
+    source $HOME/.cargo/env
 fi
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
-if type brew >/dev/null 2>&1; then
-  # Add Homebrew completions to FPATH
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  # Add Homebrew site-functions to FPATH
-  FPATH=$(brew --prefix)/share/zsh/site-functions:${FPATH}
-  # Enable zsh-autosuggestions plugin
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # Initialize completions system
-  autoload -Uz compinit && compinit
-fi
-
-# if docker exists, add docker completions
-if type docker >/dev/null 2>&1; then
-  fpath=($HOME/.docker/completions $fpath)
-  autoload -Uz compinit
-  compinit
-fi
-
-# homebrew
-export HOMEBREW_AUTO_UPDATE_SECS='86400'
 
 # fzf
 export FZF_DEFAULT_OPTS='--color=fg+:11 --height 70% --reverse --select-1 --exit-0 --multi'

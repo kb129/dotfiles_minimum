@@ -5,17 +5,6 @@ export HISTSIZE=10000
 export EDITOR="nvim"
 
 # Set PATH
-# brew
-if [ -d /opt/homebrew/bin ]; then
-    export PATH="/opt/homebrew/bin:$PATH"
-elif [ -d $HOME/homebrew ]; then
-    export PATH="$HOME/homebrew/bin:$PATH"
-elif [ -d /home/linuxbrew/.linuxbrew/bin ]; then
-    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-fi
-if [ -d $HOME/.nodebrew/current/bin ]; then
-    export PATH="$HOME/.nodebrew/current/bin:$PATH"
-fi
 if [ -d $HOME/.go/bin ]; then
     export PATH="$HOME/.go/bin:$PATH"
 fi

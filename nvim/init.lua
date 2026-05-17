@@ -1,7 +1,6 @@
 require("base")
 require("autocmds")
 require("options")
-require("colorscheme")
 require("plugins")
 require("keymaps")
 require("coc")
@@ -44,9 +43,10 @@ require("mason-tool-installer").setup({
         "shfmt", -- Shell formatter
         "black", -- Python formatter
         "pyright", -- Python LSP
-        "clang-format", -- C/C++ formatter
-        "html-lsp", -- HTML formatter
         "clangd", -- C/C++ Language Server (for coc or nvim-lsp)
+        "clang-format", -- C/C++ formatter
+        "codelldb", -- debug
+        "html-lsp", -- HTML formatter
     },
 
     -- Automatically update tools
@@ -54,3 +54,4 @@ require("mason-tool-installer").setup({
     -- Run installation on startup
     run_on_start = true,
 })
+require("colorscheme")
