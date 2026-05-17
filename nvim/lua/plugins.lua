@@ -27,6 +27,7 @@ lazy.setup({
     "akinsho/bufferline.nvim",
     "averms/black-nvim",
     "stevearc/oil.nvim",
+    "danymat/neogen",
 
     "nvim-treesitter/nvim-treesitter",
     "nvim-telescope/telescope.nvim",

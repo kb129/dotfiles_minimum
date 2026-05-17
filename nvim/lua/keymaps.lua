@@ -28,3 +28,8 @@ vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 --tab switch
 vim.keymap.set("n", "<leader>l", ":tabnext<CR>", { desc = "Next tab" })
 vim.keymap.set("n", "<leader>h", ":tabprevious<CR>", { desc = "Previous tab" })
+
+-- generate doc comment
+vim.keymap.set("n", "<leader>gd", function()
+    require("neogen").generate()
+end, { desc = "Generate documentation annotation" })
