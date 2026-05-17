@@ -54,6 +54,21 @@ require("mason-tool-installer").setup({
     -- Run installation on startup
     run_on_start = true,
 })
+require("nvim-treesitter.configs").setup({
+    ensure_installed = {
+        "c",
+        "cpp",
+        "python",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+    },
+    auto_install = true,
+    highlight = {
+        enable = true,
+    },
+})
 require("neogen").setup({
     languages = {
         c = {
@@ -63,7 +78,7 @@ require("neogen").setup({
         },
         python = {
             template = {
-                annotation_convention = "reST",
+                annotation_convention = "numpydoc",
             },
         },
     },

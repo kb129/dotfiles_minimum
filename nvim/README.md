@@ -68,7 +68,8 @@
 | Normal | `<leader>gd` | カーソル位置の関数/メソッドに doc コメントを自動生成 |
 
 - C: `doxygen` 形式（`@param` など）
-- Python: `reST` 形式（`:param` など）
+- Python: `numpydoc` 形式（`Parameters` セクションに `name : type` を自動生成）
+- `nvim-treesitter` の C/Python パーサーを利用して、引数名・型ヒントをできるだけ自動で埋めます
 
 ### ファイラー（oil.nvim）
 
