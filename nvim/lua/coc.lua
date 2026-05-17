@@ -26,6 +26,9 @@ keyset("n", "gi", "<Plug>(coc-implementation)", opts)
 -- Go to references (shows a list of where the symbol is used)
 keyset("n", "gr", "<Plug>(coc-references)", opts)
 
+-- Rename
+keyset("n", "<leader>rn", "<Plug>(coc-rename)", opts)
+
 -- Show documentation in a floating window (K)
 function _G.show_docs()
     local cw = vim.fn.expand("<cword>")
