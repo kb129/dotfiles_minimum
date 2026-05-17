@@ -12,8 +12,6 @@ end, opts)
 -- Enterで確定
 keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
-local opts = { silent = true }
-
 -- Go to definition
 keyset("n", "gd", "<Plug>(coc-definition)", opts)
 

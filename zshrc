@@ -38,9 +38,6 @@ fi
 # prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-else
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # aliases
