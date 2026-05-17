@@ -54,4 +54,18 @@ require("mason-tool-installer").setup({
     -- Run installation on startup
     run_on_start = true,
 })
+require("neogen").setup({
+    languages = {
+        c = {
+            template = {
+                annotation_convention = "doxygen",
+            },
+        },
+        python = {
+            template = {
+                annotation_convention = "reST",
+            },
+        },
+    },
+})
 require("colorscheme")

@@ -21,6 +21,7 @@
 | [coc.nvim](https://github.com/neoclide/coc.nvim) | LSP クライアント・補完エンジン |
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | コメントトグル |
 | [black-nvim](https://github.com/averms/black-nvim) | Python フォーマッター (black) |
+| [neogen](https://github.com/danymat/neogen) | 関数シグネチャからドキュメントコメントを自動生成 |
 
 ### Mason で自動インストールされるツール
 
@@ -59,6 +60,15 @@
 |---|---|---|
 | Normal / Insert | `<leader>/` | 現在行のコメントをトグル |
 | Visual | `<leader>/` | 選択範囲のコメントをトグル（行コメント） |
+
+### ドキュメントコメント（neogen）
+
+| モード | キー | 動作 |
+|---|---|---|
+| Normal | `<leader>gd` | カーソル位置の関数/メソッドに doc コメントを自動生成 |
+
+- C: `doxygen` 形式（`@param` など）
+- Python: `reST` 形式（`:param` など）
 
 ### ファイラー（oil.nvim）
 
