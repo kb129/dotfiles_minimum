@@ -27,7 +27,16 @@ alias gl='git pull'
 alias gp='git push'
 alias ga='git add'
 alias ga.='git add . && git commit -F- << EOM'
-alias ga.p='git add . && git commit -F- << EOM && git push'
+ga.pcmd() {
+    if [ -z "$1" ]; then
+        echo "error: commit message required." >&2
+        echo "usage: ga.p <message>" >&2
+        return 1
+    fi
+
+    git add . && git commit -m "$1" && git push
+}
+alias ga.p='ga.pcmd'
 alias gc='git commit'
 alias gcm='git commit -F- << EOM'
 alias gf='git fetch'
