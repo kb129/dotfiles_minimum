@@ -7,7 +7,7 @@ keyset("i", "<TAB>", function()
         return vim.fn["coc#pum#next"](1)
     end
     return "<TAB>"
-end, opts)
+end, { silent = true, noremap = true, expr = true })
 
 -- Enterで確定
 keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
