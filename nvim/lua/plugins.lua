@@ -1,6 +1,6 @@
 -- install lazy.nvim if not already installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -20,22 +20,96 @@ end
 
 -- install plugins
 lazy.setup({
-    "williamboman/mason.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    { "williamboman/mason.nvim", opts = { ui = { border = "rounded" } } },
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        dependencies = { "williamboman/mason.nvim" },
+        opts = {
+            ensure_installed = {
+                "stylua",
+                "shfmt",
+                "black",
+                "pyright",
+                "clangd",
+                "clang-format",
+                "codelldb",
+                "html-lsp",
+            },
+            auto_update = true,
+            run_on_start = true,
+        },
+    },
     "nvim-lua/plenary.nvim",
     "EdenEast/nightfox.nvim",
     "akinsho/bufferline.nvim",
     "averms/black-nvim",
-    "stevearc/oil.nvim",
-    "danymat/neogen",
-
-    "nvim-treesitter/nvim-treesitter",
     "nvim-telescope/telescope.nvim",
-
-    { "neoclide/coc.nvim", branch = "release" },
     "numToStr/Comment.nvim",
-}, {
-    ui = {
-        border = "rounded",
+    {
+        "stevearc/oil.nvim",
+        opts = {
+            default_file_explorer = true,
+            view_options = {
+                show_hidden = true,
+                natural_sorting = true,
+            },
+            float = {
+                padding = 2,
+                max_width = 0.9,
+                max_height = 0.9,
+                border = "rounded",
+                win_options = { winblend = 10 },
+            },
+            keymaps = {
+                ["<C-h>"] = "actions.parent",
+                ["<leader>|"] = "actions.select_vsplit",
+                ["<leader>-"] = "actions.select_split",
+                ["<leader>t"] = "actions.select_tab",
+                ["<C-r>"] = "actions.refresh",
+                ["q"] = "actions.close",
+            },
+        },
     },
-})
+
+    {
+        "danymat/neogen",
+        languages = {
+            c = {
+                template = {
+                    annotation_convention = "doxygen",
+                },
+            },
+            python = {
+                template = {
+                    annotation_convention = "numpydoc",
+                },
+            },
+        },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+        config = function()
+            pcall(function()
+                require("nvim-treesitter.configs").setup({
+                    highlight = { enable = true },
+                })
+            end)
+        end,
+        opts = {
+            ensure_installed = {
+                "c",
+                "cpp",
+                "python",
+                "lua",
+                "vim",
+                "vimdoc",
+                "query",
+            },
+            highlight = { enable = true },
+        },
+    },
+    { "neoclide/coc.nvim", branch = "release" },
+}, { ui = { border = "rounded" } })
