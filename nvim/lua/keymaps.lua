@@ -11,6 +11,7 @@ vim.keymap.set({ "n", "x", "o" }, "<Space>", "<Nop>", { silent = true, desc = "D
 vim.keymap.set("n", "<leader>e", function()
     local ok, oil = pcall(require, "oil")
     if not ok then
+        vim.notify("oil.nvim is not available", vim.log.levels.WARN)
         return
     end
     oil.toggle_float()
