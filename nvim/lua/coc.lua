@@ -1,6 +1,6 @@
 -- coc.nvim 用の設定
 local keyset = vim.keymap.set
-local opts = { silent = true, noremap = true, expr = true, replace_keycodes = true }
+local opts = { silent = true, noremap = true }
 -- Tabで補完選択
 keyset("i", "<TAB>", function()
     if vim.fn["coc#pum#visible"]() == 1 then
