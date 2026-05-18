@@ -54,33 +54,40 @@ require("mason-tool-installer").setup({
     -- Run installation on startup
     run_on_start = true,
 })
-require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-        "c",
-        "cpp",
-        "python",
-        "lua",
-        "vim",
-        "vimdoc",
-        "query",
-    },
-    auto_install = true,
-    highlight = {
-        enable = true,
-    },
-})
-require("neogen").setup({
-    languages = {
-        c = {
-            template = {
-                annotation_convention = "doxygen",
+local treesitter_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+if treesitter_ok then
+    treesitter_configs.setup({
+        ensure_installed = {
+            "c",
+            "cpp",
+            "python",
+            "lua",
+            "vim",
+            "vimdoc",
+            "query",
+        },
+        auto_install = true,
+        highlight = {
+            enable = true,
+        },
+    })
+end
+
+local neogen_ok, neogen = pcall(require, "neogen")
+if neogen_ok then
+    neogen.setup({
+        languages = {
+            c = {
+                template = {
+                    annotation_convention = "doxygen",
+                },
+            },
+            python = {
+                template = {
+                    annotation_convention = "numpydoc",
+                },
             },
         },
-        python = {
-            template = {
-                annotation_convention = "numpydoc",
-            },
-        },
-    },
-})
+    })
+end
 require("colorscheme")

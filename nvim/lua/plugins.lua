@@ -19,6 +19,8 @@ if not status_ok then
 end
 
 -- install plugins
+local has_nvim_0_10_4 = vim.fn.has("nvim-0.10.4") == 1
+
 lazy.setup({
     "williamboman/mason.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -30,7 +32,10 @@ lazy.setup({
     "danymat/neogen",
 
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
+    {
+        "nvim-telescope/telescope.nvim",
+        enabled = has_nvim_0_10_4,
+    },
 
     { "neoclide/coc.nvim", branch = "release" },
     "numToStr/Comment.nvim",
