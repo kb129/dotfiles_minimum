@@ -8,7 +8,13 @@ vim.keymap.set({ "n", "x", "o" }, "<leader>0", "0", { desc = "Go to absolute lin
 
 -- disable space cursor movement
 vim.keymap.set({ "n", "x", "o" }, "<Space>", "<Nop>", { silent = true, desc = "Disable space cursor movement" })
-vim.keymap.set("n", "<leader>e", require("oil").toggle_float, { desc = "Open Oil in a floating window" })
+vim.keymap.set("n", "<leader>e", function()
+    local ok, oil = pcall(require, "oil")
+    if not ok then
+        return
+    end
+    oil.toggle_float()
+end, { desc = "Open Oil in a floating window" })
 
 -- comment toggle
 vim.keymap.set({ "n", "i" }, "<leader>/", function()

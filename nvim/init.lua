@@ -5,7 +5,17 @@ require("plugins")
 require("keymaps")
 require("coc")
 -- Plugin configurations
-require("oil").setup({
+local function setup_if_available(module_name, setup_opts)
+    local ok, module = pcall(require, module_name)
+    if not ok then
+        return
+    end
+    if type(module.setup) == "function" then
+        module.setup(setup_opts)
+    end
+end
+
+setup_if_available("oil", {
     default_file_explorer = true,
     view_options = {
         show_hidden = true,
@@ -29,32 +39,29 @@ require("oil").setup({
         ["q"] = "actions.close",
     },
 })
--- lua/mason-config.lua
-require("mason").setup({
+
+setup_if_available("mason", {
     ui = {
         border = "rounded",
     },
 })
 
-require("mason-tool-installer").setup({
-    -- List of tools to be automatically installed
+setup_if_available("mason-tool-installer", {
     ensure_installed = {
-        "stylua", -- Lua formatter
-        "shfmt", -- Shell formatter
-        "black", -- Python formatter
-        "pyright", -- Python LSP
-        "clangd", -- C/C++ Language Server (for coc or nvim-lsp)
-        "clang-format", -- C/C++ formatter
-        "codelldb", -- debug
-        "html-lsp", -- HTML formatter
+        "stylua",
+        "shfmt",
+        "black",
+        "pyright",
+        "clangd",
+        "clang-format",
+        "codelldb",
+        "html-lsp",
     },
-
-    -- Automatically update tools
     auto_update = true,
-    -- Run installation on startup
     run_on_start = true,
 })
-require("nvim-treesitter.configs").setup({
+
+setup_if_available("nvim-treesitter.configs", {
     ensure_installed = {
         "c",
         "cpp",
@@ -69,7 +76,8 @@ require("nvim-treesitter.configs").setup({
         enable = true,
     },
 })
-require("neogen").setup({
+
+setup_if_available("neogen", {
     languages = {
         c = {
             template = {

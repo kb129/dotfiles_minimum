@@ -30,7 +30,7 @@ lazy.setup({
     "danymat/neogen",
 
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
+    { "nvim-telescope/telescope.nvim", cmd = "Telescope" },
 
     { "neoclide/coc.nvim", branch = "release" },
     "numToStr/Comment.nvim",
