@@ -10,7 +10,12 @@ keyset("i", "<TAB>", function()
 end, { silent = true, noremap = true, expr = true })
 
 -- Enterで確定
-keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+keyset(
+    "i",
+    "<CR>",
+    [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
+    { silent = true, noremap = true, expr = true }
+)
 
 -- Go to definition
 keyset("n", "gd", "<Plug>(coc-definition)", opts)
@@ -41,6 +46,7 @@ end
 keyset("n", "K", "<CMD>lua _G.show_docs()<CR>", opts)
 
 vim.g.coc_global_extensions = {
+    "coc-lua",
     "coc-clangd",
     "coc-json",
     "coc-html", -- HTML support
