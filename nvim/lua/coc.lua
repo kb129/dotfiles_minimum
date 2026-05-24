@@ -52,4 +52,5 @@ vim.g.coc_global_extensions = {
     "coc-html", -- HTML support
     "coc-emmet", -- Emmet support
     "coc-pyright", -- Python support
+    "coc-markdown-preview-enhanced",
 }

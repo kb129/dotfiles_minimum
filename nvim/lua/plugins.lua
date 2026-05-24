@@ -107,6 +107,7 @@ lazy.setup({
                 "vim",
                 "vimdoc",
                 "query",
+                "markdown",
             },
             highlight = { enable = true },
         },
