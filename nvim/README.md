@@ -7,6 +7,19 @@
 
 ---
 
+## セットアップ前提（Ubuntu）
+
+`install.force.sh` 実行後に Mason ツール（`stylua` / `codelldb` など）を安定して導入するため、先に以下をインストールしてください。
+
+```bash
+sudo apt update
+sudo apt install -y python3.12-venv nodejs git curl unzip tar gzip
+```
+
+> Ubuntu の apt パッケージ名は `node` ではなく `nodejs` です。
+
+---
+
 ## プラグイン一覧
 
 | プラグイン | 役割 |
