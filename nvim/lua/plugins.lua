@@ -26,6 +26,7 @@ lazy.setup({
         dependencies = { "williamboman/mason.nvim" },
         opts = {
             ensure_installed = {
+                "glow",
                 "stylua",
                 "shfmt",
                 "black",
@@ -45,6 +46,12 @@ lazy.setup({
     "averms/black-nvim",
     "nvim-telescope/telescope.nvim",
     "numToStr/Comment.nvim",
+    {
+        "skanehira/preview-markdown.vim",
+        init = function()
+            vim.g.preview_markdown_parser = "glow"
+        end,
+    },
     {
         "stevearc/oil.nvim",
         opts = {
