@@ -84,6 +84,14 @@ sudo apt install -y python3.12-venv nodejs git curl unzip tar gzip
 - Python: `numpydoc` 形式（`Parameters` セクションに `name : type` を自動生成）
 - `nvim-treesitter` の C/Python パーサーを利用して、引数名・型ヒントをできるだけ自動で埋めます
 
+### Markdownプレビュー（preview-markdown.vim）
+
+| モード | キー | 動作 |
+|---|---|---|
+| Normal | `<leader>mp` | 現在のバッファのMarkdownを新しいタブでプレビュー（`glow`でレンダリング） |
+
+- `:PreviewMarkdown [left\|top\|right\|bottom\|tab]` を直接実行することでも表示位置を変更可能
+
 ### ファイラー（oil.nvim）
 
 `<leader>e` でフローティングウィンドウを開いたあと、以下のキーが使えます。

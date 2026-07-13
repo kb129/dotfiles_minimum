@@ -33,3 +33,6 @@ vim.keymap.set("n", "<leader>h", ":tabprevious<CR>", { desc = "Previous tab" })
 vim.keymap.set("n", "<leader>gd", function()
     require("neogen").generate()
 end, { desc = "Generate documentation annotation" })
+
+-- preview markdown in a new tab
+vim.keymap.set("n", "<leader>mp", ":PreviewMarkdown tab<CR>", { desc = "Preview markdown in a tab" })
